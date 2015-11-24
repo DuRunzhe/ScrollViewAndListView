@@ -6,6 +6,7 @@ import com.drz.utils.UIUtils;
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -34,7 +35,7 @@ public class MainActivity extends Activity {
 		sView = (ScrollView) this.findViewById(R.id.sv);
 
 		lvContent.setAdapter(new MyAdapter());
-		sView.smoothScrollTo(0, 0);
+		// sView.smoothScrollTo(0, 0);
 	}
 
 	@Override
@@ -71,12 +72,14 @@ public class MainActivity extends Activity {
 				convertView = view;
 			}
 			LayoutParams params = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, (int) UIUtils.dip2px(getApplicationContext(), 70));
+
 			TextView view = (TextView) convertView;
 			view.setText(DataContants.NAMES[position]);
 			view.setTextColor(Color.BLACK);
 
 			// 文本框布局属性的设置
-			view.setBackgroundColor(Color.DKGRAY);
+			view.setBackgroundColor(Color.argb(8, 0, 0, 0));
+			
 			int padding = UIUtils.dip2px(getApplicationContext(), 5);
 			view.setPadding(padding, padding, padding, padding);
 			view.setTextSize(18);
